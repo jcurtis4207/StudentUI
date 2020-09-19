@@ -1,0 +1,22 @@
+.grid { 
+    margin:1em auto; 
+    border-collapse: collapse;
+}
+.grid td {
+    cursor:pointer;
+    width:30px; 
+    height:30px;
+    border:1px solid #000000;
+}
+/* heavy lines between quadrants */
+.grid tr:nth-child(10){
+    border-bottom: solid black;
+}
+.grid td:nth-child(11){
+    border-left: solid black;
+}
+/* draw grey circle in clicked cell */
+.grid td.clicked {
+    background-color:#666666;
+    border-radius: 50%;
+}
