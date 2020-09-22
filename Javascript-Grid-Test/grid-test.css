@@ -63,26 +63,26 @@
         }
         
         #easy {
-            position: absolute;
-            top: 56%;
-            left: 32%;
-        }
-        
-        #boring {
-            position: absolute;
-            top: 94%;
-            left: 60%
-        }
-        
-        #hard {
-            position: absolute;
-            top: 56%;
-            left: 88%;
-        }
-        
-        #interesting {
-            position: absolute;
-            top: 20%;
-            left: 58%;
-        }
+    position: absolute;
+    top: 52%;
+    left: 32%;
+}
+
+#boring {
+    position: absolute;
+    top: 90%;
+    left: 60%
+}
+
+#hard {
+    position: absolute;
+    top: 52%;
+    left: 88%;
+}
+
+#interesting {
+    position: absolute;
+    top: 15%;
+    left: 58%;
+}
         
