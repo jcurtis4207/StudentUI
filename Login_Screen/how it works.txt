@@ -1,0 +1,10 @@
+The landing page is "login-page.php".
+The user selects their name from the menu and enters their password.
+This sends the form data to "login-attempt.php".
+	If their password is correct, they are logged in, which is currently just a screen saying "Login Successful".
+	If their password is incorrect, the screen says "Login Failed".
+If the user doesn't have a password, they are redirected to "new-login.html".
+Here they enter the teacher's password for verification and create a new password for their account.
+This sends the form data to "new-login-attempt.php".
+	If the teacher password is correct, and their passwords match, their entry in the database is updated with the new password.
+	If the teacher password is incorrect, or their passwords don't match, an error screen is displayed.
