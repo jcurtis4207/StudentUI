@@ -1,30 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <link rel="stylesheet" type="text/css" href="grid-test.css">
-        <title>JS Grid Test</title>
-    </head>
-    <body>
-        <div class="container">
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="grid-test.css">
+    <title>JS Grid Test</title>
+</head>
+
+<body>
+    <div class="container">
         <form>
-            <label for="fname">Full name:</label><br>
-            <input type="text" id="fname" name="fname" value=""><br><br><br>
+            <label for="Student">Student</label><br>
+            <input type="text" id="Student" name="Student" value=""><br><br><br>
             <label for="lab">Lab</label><br>
-            <input type="text" id="lab" name="lab" value=""><br><br><br>
-            <label for="studentPassword">Student Password:</label><br>
-            <input type="text" id="studentPassword" name="studentPassword" value=""><br><br>
+            <input type="number" id="lab" name="lab" min="1" max="15"><br><br><br>
+            <label for="tutorPassword">Tutor Password:</label><br>
+            <input type="text" id="tutorPassword" name="tutorPassword" value=""><br><br>
             <input type="submit" value="Submit">
-            </form>
+        </form>
         <div id="dom-table">
             <h1> <span>Question 1</span>Click on the graph at the point that best describes your opinion of today's lab</h1>
-            <p id='interesting'>interesting</p>
-            <p id='easy'>easy</p>
-            <p id='hard'>hard</p>
-            <p id='boring'>boring</p>
-            </div>
+            <p id='Interesting'>Interesting</p>
+            <p id='Easy'>Easy</p>
+            <p id='Hard'>Hard</p>
+            <p id='Boring'>Boring</p>
         </div>
-        
-        <script src="grid-test.js"></script>
-    </body>
-</html>
+    </div>
+    <a href="#" class="skip">Skip This Question</a>
+    <a href="#" class="send">Send Your Answer</a>
+    <script src="grid-test.js"></script>
+</body>
+</html
