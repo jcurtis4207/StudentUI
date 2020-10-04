@@ -1,88 +1,120 @@
-        .grid {
-            margin: 1em auto;
-            border-collapse: collapse;
-            height: 70vh;
-            width: 50vw;
-            background: white;
-        }
-        
-        h1 {
-            font-size: 12px;
-            text-align: left;
-            margin-bottom: 10%;
-        }
-        
-        span {
-            margin-right: 10%;
-        }
-        
-        body {
-            background: lightgrey
-        }
-        
-        .container {
-            display: flex;
-            flex-direction: row;
-            height: 100vh;
-        }
-        
-        .grid td {
-            cursor: pointer;
-            width: 30px;
-            /* height: 30px; */
-            border: 1px solid #000000;
-        }
-        
-        #dom-table {
-            border: 1px solid black;
-            margin: 10px;
-            padding-bottom: 100px;
-            width: 80vw;
-        }
-        
-        form {
-            border: 1px solid black;
-            margin: 10px;
-            padding: 15px;
-            width: 20vw;
-        }
-        /* heavy lines between quadrants */
-        
-        .grid tr:nth-child(10) {
-            border-bottom: solid black;
-        }
-        
-        .grid td:nth-child(11) {
-            border-left: solid black;
-        }
-        /* draw grey circle in clicked cell */
-        
-        .grid td.clicked {
-            background-color: #666666;
-            border-radius: 50%;
-        }
-        
-        #easy {
-    position: absolute;
-    top: 52%;
-    left: 32%;
+.grid {
+    margin: 1em auto;
+    border-collapse: collapse;
+    height: 70vh;
+    width: 50vw;
+    background: white;
 }
 
-#boring {
-    position: absolute;
-    top: 90%;
-    left: 60%
+h1 {
+    font-size: 12px;
+    text-align: left;
+    margin-bottom: 7%;
+    position: relative;
+    left: 2%;
 }
 
-#hard {
+span {
+    margin-right: 10%;
+}
+
+body {
+    background: lightgrey
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    height: 104vh;
+}
+
+.grid td {
+    cursor: pointer;
+    width: 30px;
+    /* height: 30px; */
+    border: 1px solid #000000;
+}
+
+#dom-table {
+    border: 1px solid black;
+    margin: 10px;
+    padding-bottom: 100px;
+    width: 75vw;
+}
+
+form {
+    border: 1px solid black;
+    margin: 10px;
+    padding: 15px;
+    width: 20vw;
+}
+
+
+/* heavy lines between quadrants */
+
+.grid tr:nth-child(10) {
+    border-bottom: solid black;
+}
+
+.grid td:nth-child(11) {
+    border-left: solid black;
+}
+
+
+/* draw grey circle in clicked cell */
+
+.grid td.clicked {
+    background-color: #666666;
+    border-radius: 50%;
+}
+
+#Easy {
     position: absolute;
-    top: 52%;
+    top: 48%;
+    left: 33%;
+}
+
+#Boring {
+    position: absolute;
+    top: 87%;
+    left: 60%;
+}
+
+#Hard {
+    position: absolute;
+    top: 48%;
     left: 88%;
 }
 
-#interesting {
+#Interesting {
     position: absolute;
-    top: 15%;
-    left: 58%;
+    top: 12%;
+    left: 60%;
 }
-        
+
+a {
+    text-decoration: none;
+    display: inline-block;
+    padding: 10px 35px;
+}
+
+a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+.skip {
+    background-color: #808080;
+    color: black;
+    position: absolute;
+    bottom: -12px;
+    right: 300px;
+}
+
+.send {
+    background-color: #808080;
+    color: black;
+    position: absolute;
+    bottom: -12px;
+    right: 50px;
+}
