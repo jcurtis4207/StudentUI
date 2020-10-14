@@ -36,22 +36,15 @@
 
     <!-- Click a button to submit rating or skip the question -->
     <form>
-        <input type="button" id="send" value="Submit Rating" onclick="submitRating();" disabled></input>
-        <input type="button" id="skip" value="Skip Question" onclick="skipRating();"></input>
+        <input type="button" id="submit-button" value="Submit Rating" onclick="submitRating();" disabled></input>
+        <input type="button" id="skip-button" value="Skip Question" onclick="skipRating();"></input>
     </form>
 
     <script>
         // instead of js alerts, will be php posts to db
         function submitRating(){
-            // if question is rated
-            if(document.getElementById("x_value").innerHTML != 0 && document.getElementById("y_value").innerHTML != 0){
-                alert("Submitting: " + document.getElementById("x_value").innerHTML + ", " + document.getElementById("y_value").innerHTML);
-                window.open("grid.php", "_self");
-            }
-            // if question is not rated
-            else{
-                alert("Please Rate Question Before Submitting");
-            }
+            alert("Submitting: " + document.getElementById("x_value").innerHTML + ", " + document.getElementById("y_value").innerHTML);
+            window.open("grid.php", "_self");
         }
         function skipRating(){
             alert("Submitting: 0,0");

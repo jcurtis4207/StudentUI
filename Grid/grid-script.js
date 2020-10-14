@@ -24,7 +24,7 @@ var grid = clickableGrid(quadrantHeight * 2, quadrantWidth * 2, function(element
     }
     lastClicked = element;
     // enable submit button
-    document.getElementById("send").disabled = false;
+    document.getElementById("submit-button").disabled = false;
 });
 
 // add grid to html body
