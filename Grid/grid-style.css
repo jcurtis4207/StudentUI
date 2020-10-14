@@ -1,0 +1,91 @@
+body {
+    background-color: lightgrey;
+}
+
+h1 {
+    font-size: 12px;
+    text-align: left;
+    margin-bottom: 7%;
+    position: relative;
+    left: 2%;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    height: 104vh;
+}
+
+#dom-table {
+    border: 1px solid black;
+    margin: 10px;
+    padding-bottom: 100px;
+    width: 75vw;
+}
+
+.grid {
+    margin: 1em auto;
+    border-collapse: collapse;
+    height: 70vh;
+    width: 50vw;
+    background: white;
+}
+
+.grid td {
+    cursor: pointer;
+    width: 30px;
+    /* height: 30px; */
+    border: 1px solid #000000;
+}
+
+/* heavy lines between quadrants */
+.grid tr:nth-child(10) {
+    border-bottom: solid black;
+}
+
+.grid td:nth-child(11) {
+    border-left: solid black;
+}
+
+/* draw grey circle in clicked cell */
+.grid td.clicked {
+    background-color: #666666;
+    border-radius: 50%;
+}
+
+input[type=button]{
+    position: relative;
+    top: -120px;
+    left: 1100px;
+    padding: 10px;
+    font-size: 18px;
+}
+
+#Easy {
+    position: absolute;
+    top: 48%;
+    left: 8%;
+}
+#Boring {
+    position: absolute;
+    top: 87%;
+    left: 37%;
+}
+#Hard {
+    position: absolute;
+    top: 48%;
+    left: 68%;
+}
+#Interesting {
+    position: absolute;
+    top: 12%;
+    left: 37%;
+}
+
+/* Hide passed javascript values */
+#x_value{
+    visibility: hidden;
+}
+#y_value{
+    visibility: hidden;
+}
