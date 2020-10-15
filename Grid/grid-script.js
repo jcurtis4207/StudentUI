@@ -4,7 +4,7 @@ var quadrantWidth = 10;
 
 // create grid
 var grid = clickableGrid(quadrantHeight * 2, quadrantWidth * 2, function(element, row, column) {
-    // print selected cell to console
+    // print selected cell to console and send to grid.php
     // configured for positive/negative values with no 0
     var outputX = column - quadrantWidth;
     var outputY = quadrantHeight - row;
@@ -15,8 +15,8 @@ var grid = clickableGrid(quadrantHeight * 2, quadrantWidth * 2, function(element
         outputY--;
     }
     console.log("Selected (", outputX, ",", outputY, ")");
-    document.getElementById("x_value").innerHTML = outputX;
-    document.getElementById("y_value").innerHTML = outputY;
+    document.getElementById("x_value").value = outputX;
+    document.getElementById("y_value").value = outputY;
     // use css to add colored circle to last clicked cell
     element.className = 'clicked';
     if (lastClicked) {

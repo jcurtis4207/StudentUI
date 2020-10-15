@@ -10,7 +10,7 @@
         # if so exit, if not rate the question
         session_start();
         $_SESSION['current_question'] = $_SESSION['current_question'] + 1;
-        if($_SESSION['current_question'] > $_SESSION['num_questions']){
+        if($_SESSION['current_question'] > $_SESSION['total_questions']){
             header("Location: exit.php");
             exit;
         }
@@ -30,27 +30,13 @@
         </div>
     </div>
 
-    <!-- Values passed from javascript grid -->
-    <div id="x_value">0</div>
-    <div id="y_value">0</div>
-
-    <!-- Click a button to submit rating or skip the question -->
-    <form>
-        <input type="button" id="submit-button" value="Submit Rating" onclick="submitRating();" disabled></input>
-        <input type="button" id="skip-button" value="Skip Question" onclick="skipRating();"></input>
+    <!-- Click to submit rating -->
+    <form id="output_form" method="POST" action="submit-rating.php">
+        <input type="submit" id="submit-button" value="Submit Rating" disabled></input>
+        <!-- Hidden values for javascript to pass rating -->
+        <input type="hidden" name="x_value" id="x_value" value=""></input>
+        <input type="hidden" name="y_value" id="y_value" value=""></input>
     </form>
-
-    <script>
-        // instead of js alerts, will be php posts to db
-        function submitRating(){
-            alert("Submitting: " + document.getElementById("x_value").innerHTML + ", " + document.getElementById("y_value").innerHTML);
-            window.open("grid.php", "_self");
-        }
-        function skipRating(){
-            alert("Submitting: 0,0");
-            window.open("grid.php", "_self");
-        }
-    </script>
 
     <!-- Grid -->
     <script src="grid-script.js"></script>

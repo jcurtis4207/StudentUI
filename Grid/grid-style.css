@@ -53,10 +53,10 @@ h1 {
     border-radius: 50%;
 }
 
-input[type=button]{
+input[type=submit]{
     position: relative;
-    top: -120px;
-    left: 1100px;
+    top: -110px;
+    left: 1250px;
     padding: 10px;
     font-size: 18px;
 }
@@ -80,12 +80,4 @@ input[type=button]{
     position: absolute;
     top: 12%;
     left: 37%;
-}
-
-/* Hide passed javascript values */
-#x_value{
-    visibility: hidden;
-}
-#y_value{
-    visibility: hidden;
 }
