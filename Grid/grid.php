@@ -43,13 +43,13 @@
                 if($conn->connect_error){
                     die("Connection Failed");
                 }
-                # read session variables
+                # read session variables - sent from login screen
                 $student_id = $_SESSION['student_id'];
                 $lab_id = $_SESSION['lab_id'];
                 $crn = $_SESSION['crn'];
 
                 # fetch student info from student table
-                $result = $conn->query("SELECT $fname_column, $lname_column FROM $students_table WHERE $student_id_column='$student_id'");
+                $result = $conn->query("SELECT $fname_column, $lname_column FROM $students_table WHERE $student_id_column='$student_id' AND $crn_column=$crn");
                 if($result->num_rows > 0){
                     $fetch = $result->fetch_assoc();
                     echo "<h3>Student</h3>";

@@ -25,18 +25,20 @@
 
 <body>
     <?php
-        # this can all probably be handled by the login mechanism
         session_start();
+
+        # these will be setup by the login page
         $_SESSION['current_question'] = 0;
         $_SESSION['lab_id'] = $lab_id;
         $_SESSION['crn'] = $crn;
         $_SESSION['student_id'] = $student_id;
+
         # connect to database
         $conn = new mysqli($server, $username, $password, $database);
         if($conn->connect_error){
             die("Connection Failed");
         }
-        # pull number of questions from lab table
+        # fetch number of questions from lab table
         $result = $conn->query("SELECT $total_questions_column FROM $labs_table WHERE $lab_id_column=$lab_id AND $crn_column=$crn");
         if($result->num_rows > 0){
             $_SESSION['total_questions'] = $result->fetch_assoc()[$total_questions_column];
