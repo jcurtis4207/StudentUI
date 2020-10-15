@@ -80,25 +80,26 @@
                 $conn->close();
             ?>
         </div>
-        <div id="dom-table">
+        <div id="question">
             <?php
                 echo "<h1>Question " . $_SESSION['current_question'] . "<br>Click on the graph at the point that best describes your opinion of today's lab</h1>";
             ?>
+        </div>
+        <div id="dom-table">
             <p id='Interesting'>Interesting</p>
             <p id='Easy'>Easy</p>
             <p id='Hard'>Hard</p>
             <p id='Boring'>Boring</p>
+
+            <!-- Click to submit rating -->
+            <form id="output_form" method="POST" action="submit-rating.php">
+                <input type="button" id="submit-button" value="Submit Rating" onclick="submitForm()" disabled></input>
+                <!-- Hidden values for javascript to pass rating -->
+                <input type="hidden" name="x_value" id="x_value" value=""></input>
+                <input type="hidden" name="y_value" id="y_value" value=""></input>
+            </form>
         </div>
     </div>
-
-    <!-- Click to submit rating -->
-    <form id="output_form" method="POST" action="submit-rating.php">
-        <input type="button" id="submit-button" value="Submit Rating" onclick="submitForm()" disabled></input>
-        <!-- Hidden values for javascript to pass rating -->
-        <input type="hidden" name="x_value" id="x_value" value=""></input>
-        <input type="hidden" name="y_value" id="y_value" value=""></input>
-    </form>
-
     <!-- Confirm dialogue before user submits rating -->
     <script>
         function submitForm(){
