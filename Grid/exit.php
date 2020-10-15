@@ -10,8 +10,10 @@
 <body>
     <?php
         session_start();
-        echo "All " . $_SESSION['num_questions'] . " Questions Rated";
+        echo "All " . $_SESSION['total_questions'] . " Questions Rated";
         echo "<br>This is a placeholder to show that the question navigation works";
+        session_unset();
+        session_destroy();
     ?>
 </body>
 </html>
