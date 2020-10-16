@@ -1,0 +1,134 @@
+:root{
+    --grid-box-size: calc(min(90vw, 99vh) - 200px);
+    --grid-size: calc(var(--grid-box-size) - 200px);
+    --easy-hard-height: calc(var(--grid-box-size) - 135px);
+}
+
+body {
+    background-color: lightgrey;
+    font-size: 16px;
+}
+
+h1 {
+    font-size: 16px;
+    line-height: 30px;
+    text-align: left;
+    margin-bottom: 7%;
+    position: relative;
+    left: 2%;
+}
+
+#lab-info {
+    border: 1px solid black;
+    margin: 10px;
+    padding-left: 20px;
+    width: 200px;
+    min-width: 200px;
+    height: calc(var(--grid-box-size) + 100px);
+    word-wrap: normal;
+}
+
+#question{
+    position: absolute;
+    margin: 10px;
+    padding-left: 20px;
+    height: 100px;
+    width: calc(90vw - 190px);
+    top: 0px;
+    left: 220px;
+    word-wrap: normal;
+}
+
+#dom-table {
+    border: 1px solid black;
+    position: absolute;
+    margin: 10px;
+    width: var(--grid-box-size);
+    height: var(--grid-box-size);
+    top: 100px;
+    left: 250px;
+}
+
+.grid {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: var(--grid-size);
+    width: var(--grid-size);
+    transform: translate(-50%, -50%);
+    border-collapse: collapse;
+    background: white;
+}
+
+.grid td {
+    cursor: pointer;
+    width: 0.5vw;
+    height: 0.5vw;
+    border: 1px solid #000000;
+}
+
+/* heavy lines between quadrants */
+.grid tr:nth-child(10) {
+    border-bottom: solid black;
+}
+
+.grid td:nth-child(11) {
+    border-left: solid black;
+}
+
+/* draw grey circle in clicked cell */
+.grid td.clicked {
+    background-color: #666666;
+    border-radius: 50%;
+}
+
+#submit-button {
+    position: absolute;
+    top: calc(var(--grid-box-size) - 60px);
+    left: calc(var(--grid-box-size) - 140px);
+    padding: 10px;
+    font-size: 16px;
+}
+#skip-button {
+    position: absolute;
+    top: calc(var(--grid-box-size) - 60px);
+    left: calc(var(--grid-box-size) - 265px);
+    padding: 10px;
+    font-size: 16px;
+}
+
+#Interesting {
+    text-align: center;
+    position: absolute;
+    top: 30px;
+    left: 0%;
+    height: 50px;
+    width: 100%;
+}
+#Boring {
+    text-align: center;
+    position: absolute;
+    top: calc(var(--grid-box-size) - 80px);
+    left: 0%;
+    height: 50px;
+    width: 100%;
+}
+#Easy {
+    position: absolute;
+    text-align: center;
+    line-height: var(--easy-hard-height);
+    top: 50px;
+    left: 0%;
+    height: var(--easy-hard-height);
+    width: 100px;
+}
+#Hard {
+    position: absolute;
+    text-align: center;
+    line-height: var(--easy-hard-height);
+    top: 50px;
+    left: calc(var(--grid-box-size) - 100px);
+    height: var(--easy-hard-height);
+    width: 100px;
+}

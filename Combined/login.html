@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+    <title>Student Login</title>
+    <script src="login.js"></script>
+</head>
+<body>
+    <form id="input-form" action="login.php" method="POST">
+        <p>Enter Student ID</p>
+        <input type="text" size="35" maxlength="30" name="student_id" id="student_id" required/>
+        <p>Enter Student Password</p>
+        <input type="password" size="35" maxlength="30" name="student_password" id="student_password" required />
+        <br><br>
+        <input type="button" id="student-button" onclick="SubmitStudentData();" value="Submit Student Info" />
+        <p>Select Lab CRN</p>
+        <select name="crn_dropdown" id="crn_dropdown" disabled></select>
+        <p>Enter Instructor Password</p>
+        <input type="password" size="35" maxlength="30" name="teacher_password" id="teacher_password" disabled />
+        <br><br>
+        <input type="button" id="class-button" onclick="SubmitClassData();" value="Submit Class Info" disabled />
+        <p>Select Lab Number</p>
+        <select name="lab_dropdown" id="lab_dropdown" disabled></select>
+        <br><br>
+        <input type="submit" id="rate-button" value="RateMyLab" disabled />
+    </form>
+
+    <br><br><br>
+    <p>For First Time Login</p>
+    <a href="new-login.html">Click Here</a>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+    <title>New Login</title>
+    <script>
+        function validatePasswords(form){
+            if(form.new_password.value != form.confirm_password.value){
+                alert("Passwords do not match");
+                return false
+            }else{
+                return true;
+            }
+        }
+    </script>
+</head>
+<body>
+	<h1>First Time Login</h1>
+    <form action="new-login-attempt.php" method="POST" onsubmit="return validatePasswords(this)">
+		<table>
+            <tr>
+				<td>Enter Student ID:</td>
+				<td><input type="text" size="35" maxlength="30" name="student_id" required></td>
+            </tr>
+            <tr>
+				<td>Enter Instructor Password:</td>
+				<td><input type="password" size="35" maxlength="30" name="teacher_password" required></td>
+			</tr>
+			<tr>
+				<td>Enter CRN:</td>
+				<td><input type="text" size="35" maxlength="30" name="crn" required></td>
+			</tr>
+			<tr>
+				<td>Enter New Password:</td>
+				<td><input type="password" size="35" maxlength="30" name="new_password" required></td>
+			</tr>
+			<tr>
+				<td>Confirm New Password:</td>
+				<td><input type="password" size="35" maxlength="30" name="confirm_password" required></td>
+			</tr>
+        </table>
+        <br>
+		<input type="submit" value="Submit" />
+    </form>
+    <div id="aaaa"></div>
+</body>
+</html>
