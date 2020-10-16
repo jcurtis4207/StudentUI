@@ -32,6 +32,24 @@
         $semester_column = "semester";
         $course_title_column = "course_title";
     ?>
+    <script>
+        function submitRating(){
+            //Confirm dialogue before user submits rating
+            var confirmation = confirm("Are you sure you want to submit this rating?\nYou cannot return to rate this question again.");
+            if(confirmation == true){
+                document.getElementById('output_form').submit();
+            }
+        }
+        function skipRating(){
+            var confirmation = confirm("Are you sure you want to skip this question?\nYou cannot return to rate this question again.");
+            if(confirmation == true){
+                // set x and y to 0 and submit form
+                document.getElementById('x_value').value = 0;
+                document.getElementById('y_value').value = 0;
+                document.getElementById('output_form').submit();
+            }
+        }
+    </script>
 </head>
 
 <body>
@@ -93,22 +111,14 @@
 
             <!-- Click to submit rating -->
             <form id="output_form" method="POST" action="submit-rating.php">
-                <input type="button" id="submit-button" value="Submit Rating" onclick="submitForm()" disabled></input>
+                <input type="button" id="submit-button" value="Submit Rating" onclick="submitRating()" disabled />
+                <input type="button" id="skip-button" value="Skip Question" onclick="skipRating()" />
                 <!-- Hidden values for javascript to pass rating -->
-                <input type="hidden" name="x_value" id="x_value" value=""></input>
-                <input type="hidden" name="y_value" id="y_value" value=""></input>
+                <input type="hidden" name="x_value" id="x_value" value="" />
+                <input type="hidden" name="y_value" id="y_value" value="" />
             </form>
         </div>
     </div>
-    <!-- Confirm dialogue before user submits rating -->
-    <script>
-        function submitForm(){
-            var r = confirm("Are you sure you want to submit this rating?\nYou cannot return to rate this question again.");
-            if(r == true){
-                document.getElementById('output_form').submit();
-            }
-        }
-    </script>
 
     <!-- Grid -->
     <script src="grid-script.js"></script>
