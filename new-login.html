@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <title>New Login</title>
-    <link rel="stylesheet" type="text/css" href="login.css">
+    <link rel="stylesheet" type="text/css" href="login-style.css">
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet"> 
     <script>
         function validatePasswords(form) {
@@ -19,20 +19,20 @@
 <body>
     <div class="login">
         <div class="login_left">
-            <img src="gsu-logo.png" />
+            <img src="img/gsu-logo.png" />
         </div>
         <div class="login_right">
             <h1>First Time Login</h1>
             <form action="new-login-attempt.php" method="POST" onsubmit="return validatePasswords(this)">
-                <p>Enter Student ID:</p>
+                <p>Enter Student ID</p>
                 <input type="text" size="35" maxlength="30" name="student_id" required>
-                <p>Enter CRN:</p>
+                <p>Enter CRN</p>
                 <input type="text" size="35" maxlength="30" name="crn" required>
-                <p>Enter Instructor Password:</p>
+                <p>Enter Instructor Password</p>
                 <input type="password" size="35" maxlength="30" name="teacher_password" required>
-                <p>Enter New Password:</p>
+                <p>Enter New Password</p>
                 <input type="password" size="35" maxlength="30" name="new_password" required>
-                <p>Confirm New Password:</p>
+                <p>Confirm New Password</p>
                 <input type="password" size="35" maxlength="30" name="confirm_password" required>
                 <br><br>
                 <input type="submit" value="Create New Password" />

@@ -10,3 +10,4 @@ Team 2-The Garbage Collectors
 -Student users should be able to select their name, lab section, and number of questions on lab assignment. 
 
 -Students should also be able to rate the difficulty and engagement of the lab questions on a scale of 1-10 respectively.
+
