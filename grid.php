@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
+    <link rel="icon" type="image/png" href="img/favicon.png">
     <link rel="stylesheet" type="text/css" href="grid-style.css?ts=<?=time()?>">
     <title>RateMyLab</title>
     <?php

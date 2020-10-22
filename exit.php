@@ -3,6 +3,7 @@
 <head>
     <meta charset="utf-8">
     <title>RateMyLab</title>
+    <link rel="icon" type="image/png" href="img/favicon.png">
 </head>
 <body>
     <?php

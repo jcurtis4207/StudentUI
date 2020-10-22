@@ -1,8 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8" 
+        http-equiv="Content-Security-Policy" 
+        content="style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com"/>
     <title>Student Login</title>
+    <link rel="icon" type="image/png" href="img/favicon.png">
     <link rel="stylesheet" type="text/css" href="login-style.css">
     <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
     <script src="login-script.js"></script>
@@ -19,13 +22,13 @@
                 <p>Enter Student Password</p>
                 <input type="password" size="35" maxlength="30" name="student_password" id="student_password" required />
                 <br><br>
-                <input type="button" id="student-button" onclick="SubmitStudentData();" value="Submit Student Info" />
+                <input type="button" id="student-button" value="Submit Student Info" />
                 <p>Select Lab CRN</p>
                 <select name="crn_dropdown" id="crn_dropdown" disabled></select>
                 <p>Enter Instructor Password</p>
                 <input type="password" size="35" maxlength="30" name="teacher_password" id="teacher_password" disabled />
                 <br><br>
-                <input type="button" id="class-button" onclick="SubmitClassData();" value="Submit Class Info" disabled />
+                <input type="button" id="class-button" value="Submit Class Info" disabled />
                 <p>Select Lab Number</p>
                 <select name="lab_dropdown" id="lab_dropdown" disabled></select>
                 <br><br>

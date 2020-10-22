@@ -66,6 +66,7 @@ h1 {
     width: 0.5vw;
     height: 0.5vw;
     border: 1px solid #000000;
+    background-color: white;
 }
 
 /* heavy lines between quadrants */
@@ -78,7 +79,7 @@ h1 {
 }
 
 /* draw grey circle in clicked cell */
-.grid td.clicked {
+.grid td.selected {
     background-color: #666666;
     border-radius: 50%;
 }

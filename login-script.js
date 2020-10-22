@@ -83,3 +83,11 @@ function SubmitClassData(){
     request.send(form_data);
     return false;
 }
+
+// when document loads, add listeners to buttons
+window.onload=function(){
+    var student_button = document.getElementById('student-button');
+    var class_button = document.getElementById('class-button');
+    student_button.addEventListener("click", SubmitStudentData);
+    class_button.addEventListener("click", SubmitClassData);
+}
