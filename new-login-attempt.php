@@ -4,7 +4,6 @@
     <meta charset="utf-8" />
     <link rel="icon" type="image/png" href="img/favicon.png">
     <link rel="stylesheet" type="text/css" href="login-style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
     <title>New Login</title>
     <?php
         # database credentials
@@ -38,7 +37,10 @@
                         die("Connection Failed");
                     }
                     # fetch teacher data
-                    $result = $conn->query("SELECT $teacher_password_column FROM $teachers_table WHERE $crn_column=$crn");
+                    $stmt = $conn->prepare("SELECT $teacher_password_column FROM $teachers_table WHERE $crn_column=?");
+                    $stmt->bind_param('s', $crn);
+                    $stmt->execute();
+                    $result = $stmt->get_result();
                     if($result->num_rows > 0){
                         $fetch = $result->fetch_assoc()[$teacher_password_column];
                         # verify teacher password
@@ -53,7 +55,10 @@
                         exit;
                     }
                     # fetch student data
-                    $result = $conn->query("SELECT $crn_column, $student_password_column FROM $students_table WHERE $student_id_column='$student_id'");
+                    $stmt = $conn->prepare("SELECT $crn_column, $student_password_column FROM $students_table WHERE $student_id_column=?");
+                    $stmt->bind_param('s', $student_id);
+                    $stmt->execute();
+                    $result = $stmt->get_result();
                     if($result->num_rows > 0){
                         $fetch = $result->fetch_assoc();
                         # verify crn
@@ -74,14 +79,16 @@
                         exit;
                     }
                     # if everything is correct, update database with new password
-                    $update = "UPDATE $students_table SET $student_password_column='$new_password' WHERE $student_id_column='$student_id'";
-                    if($conn->query($update) === TRUE){
-                        echo "Successfully created password for " . $student_id;
-                        echo "<br><br><a href='login.html'>Login to RateMyLab</a>";
-                    }else{
+                    $stmt = $conn->prepare("UPDATE $students_table SET $student_password_column=? WHERE $student_id_column=?");
+                    $stmt->bind_param('ss', $new_password, $student_id);
+                    $stmt->execute();
+                    if($stmt->error){
                         echo "Unable to create password for " . $student_id;
                         echo "<br><br><a href='new-login.html'>Try Again</a>";
                         exit;
+                    }else{
+                        echo "Successfully created password for " . $student_id;
+                        echo "<br><br><a href='login.html'>Login to RateMyLab</a>";
                     }
                 }
             ?>

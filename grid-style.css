@@ -63,8 +63,8 @@ h1 {
 
 .grid td {
     cursor: pointer;
-    width: 0.5vw;
-    height: 0.5vw;
+    width: calc(var(--grid-size) / 20);
+    height: calc((var(--grid-size) / 20) - 3px);
     border: 1px solid #000000;
     background-color: white;
 }

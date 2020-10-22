@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <link rel="icon" type="image/png" href="img/favicon.png">
     <link rel="stylesheet" type="text/css" href="grid-style.css?ts=<?=time()?>">
+    <script src="grid-script.js"></script>
     <title>RateMyLab</title>
     <?php
         # check if current question is more than total number of questions
@@ -14,7 +15,6 @@
             header("Location: exit.php");
             exit;
         }
-
         # database credentials
         $server = "localhost";
         $username = "root";
@@ -32,24 +32,6 @@
         $semester_column = "semester";
         $course_title_column = "course_title";
     ?>
-    <script>
-        function submitRating(){
-            //Confirm dialogue before user submits rating
-            var confirmation = confirm("Are you sure you want to submit this rating?\nYou cannot return to rate this question again.");
-            if(confirmation == true){
-                document.getElementById('output_form').submit();
-            }
-        }
-        function skipRating(){
-            var confirmation = confirm("Are you sure you want to skip this question?\nYou cannot return to rate this question again.");
-            if(confirmation == true){
-                // set x and y to 0 and submit form
-                document.getElementById('x_value').value = 0;
-                document.getElementById('y_value').value = 0;
-                document.getElementById('output_form').submit();
-            }
-        }
-    </script>
 </head>
 <body>
     <div class="container">
@@ -108,15 +90,13 @@
 
             <!-- Click to submit rating -->
             <form id="output_form" method="POST" action="grid-submit.php">
-                <input type="button" id="submit-button" value="Submit Rating" onclick="submitRating()" disabled />
-                <input type="button" id="skip-button" value="Skip Question" onclick="skipRating()" />
+                <input type="button" id="submit-button" value="Submit Rating" disabled />
+                <input type="button" id="skip-button" value="Skip Question" />
                 <!-- Hidden values for javascript to pass rating -->
                 <input type="hidden" name="x_value" id="x_value" value="" />
                 <input type="hidden" name="y_value" id="y_value" value="" />
             </form>
         </div>
     </div>
-    <!-- Grid -->
-    <script src="grid-script.js"></script>
 </body>
 </html>

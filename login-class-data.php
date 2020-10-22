@@ -24,7 +24,10 @@
     }
     
     # fetch teacher info from teachers table
-    $result = $conn->query("SELECT $teacher_password_column FROM $teachers_table WHERE $crn_column=$crn");
+    $stmt = $conn->prepare("SELECT $teacher_password_column FROM $teachers_table WHERE $crn_column=?");
+    $stmt->bind_param('s', $crn);
+    $stmt->execute();
+    $result = $stmt->get_result();
     $output = "";
     if($result->num_rows > 0){
         $fetch = $result->fetch_assoc()[$teacher_password_column];
@@ -38,7 +41,10 @@
         $output = "";
     }
     # fetch lab info from labs table
-    $result = $conn->query("SELECT $lab_id_column FROM $labs_table WHERE $crn_column=$crn");
+    $stmt = $conn->prepare("SELECT $lab_id_column FROM $labs_table WHERE $crn_column=?");
+    $stmt->bind_param('s', $crn);
+    $stmt->execute();
+    $result = $stmt->get_result();
     if($result->num_rows > 0){
         while($row = $result->fetch_assoc()){
             # create one long string of lab ids separated by @s

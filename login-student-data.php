@@ -22,7 +22,10 @@
         die("Connection Failed");
     }
     # fetch student info from student table
-    $result = $conn->query("SELECT $crn_column, $student_password_column FROM $students_table WHERE $student_id_column='$student_id' ");
+    $stmt = $conn->prepare("SELECT $crn_column, $student_password_column FROM $students_table WHERE $student_id_column=?");
+    $stmt->bind_param('s', $student_id);
+    $stmt->execute();
+    $result = $stmt->get_result();
     $output = "";
     if($result->num_rows > 0){
         while($row = $result->fetch_assoc()){
