@@ -77,26 +77,31 @@
                 $conn->close();
             ?>
         </div>
-        <div id="question">
-            <?php
-                echo "<h1>Question " . $_SESSION['current_question'] . "<br>Click on the graph at the point that best describes your opinion of today's lab</h1>";
-            ?>
-        </div>
-        <div id="dom-table">
-            <p id='Interesting'>Interesting</p>
-            <p id='Easy'>Easy</p>
-            <p id='Hard'>Hard</p>
-            <p id='Boring'>Boring</p>
-
-            <!-- Click to submit rating -->
-            <form id="output_form" method="POST" action="grid-submit.php">
-                <input type="button" id="submit-button" value="Submit Rating" disabled />
-                <input type="button" id="skip-button" value="Skip Question" />
-                <!-- Hidden values for javascript to pass rating -->
-                <input type="hidden" name="x_value" id="x_value" value="" />
-                <input type="hidden" name="y_value" id="y_value" value="" />
-            </form>
-        </div>
+        <div class="main">
+            <div id="question">
+                <?php
+                    echo "<h1>Question " . $_SESSION['current_question'] . "<br>Click on the graph at the point that best describes your opinion of today's lab</h1>";
+                ?>
+            </div>
+            <div class="rate_question">
+                <div><p id='Interesting'>Interesting</p></div>
+                <div class="graph"> 
+                    <div><p id='Easy'>Easy</p></div>
+                    <div id="dom-table"><!-- Grid Goes Here--></div>
+                    <div><p id='Hard'>Hard</p></div>
+                </div>
+                <div><p id='Boring'>Boring</p></div>   
+            </div>
+            <div class="action">
+                <form id="output_form" method="POST" action="grid-submit.php">
+                    <input type="button" id="skip-button" value="Skip Question" />
+                    <input type="button" id="submit-button" value="Submit Rating" disabled />
+                    <!-- Hidden values for javascript to pass rating -->
+                    <input type="hidden" name="x_value" id="x_value" value="" />
+                    <input type="hidden" name="y_value" id="y_value" value="" />
+                </form>
+            </div>
+       </div>
     </div>
 </body>
 </html>
