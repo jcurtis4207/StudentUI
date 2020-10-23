@@ -1,0 +1,154 @@
+:root{
+    --grid-box-size: calc(min(90vw, 99vh) - 200px);
+    --grid-size: calc(var(--grid-box-size) - 200px);
+    --easy-hard-height: calc(var(--grid-box-size) - 135px);
+}
+
+* {
+    margin: 0;
+    color: #333333;
+    font-family: sans-serif;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    height: 100vh;
+}
+
+#lab-info {
+    max-width: 300px;
+    min-width: 300px;
+    height: calc(var(--grid-box-size) + 120px);
+    min-height: 600px;
+    margin: 10px;
+    margin-right: 10px;
+    align-items: center;
+    word-wrap: normal;
+    box-shadow: 0px 0px 8px 3px #cecece;
+    text-align: center;
+}
+
+#lab-info h3 {
+    height: 20px;
+    padding: 10px;
+    background: #f9f9f9;
+    color: black;
+    margin-bottom: 10px;
+}
+
+#lab-info h3:first-of-type {
+    height: 26px;
+    padding: 20px 10px;
+}
+
+#lab-info p {
+    margin-bottom: 30px;
+}
+
+.main {
+    flex: .75;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0px 0px 8px 3px #cecece;
+    height: calc(var(--grid-box-size) + 120px);
+}
+
+#question {
+    flex: .1;
+    padding: 12px 23px 18px 23px;
+    background: #f9f9f9;
+    min-height: 55px;
+}
+
+h1 {
+    font-size: 16px;
+    color: black;
+    line-height: 30px;
+}
+
+.rate_question {
+    flex: .6;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.graph {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.grid {
+    margin: 20px;
+    border-collapse: collapse;
+    background: white;
+    height: var(--grid-size);
+    width: var(--grid-size);
+}
+
+.grid td {
+    cursor: pointer;
+    width: calc(var(--grid-size) / 20);
+    height: calc((var(--grid-size) / 20) - 3px);
+    border: 1px solid #000000;
+    background-color: white;
+}
+
+/* heavy lines between quadrants */
+.grid tr:nth-child(10) {
+    border-bottom: solid black;
+}
+
+.grid td:nth-child(11) {
+    border-left: solid black;
+}
+
+/* draw grey circle in clicked cell */
+.grid td.selected {
+    background-color: #0030a8;
+    border-radius: 50%;
+}
+
+input {
+    height: 42px;
+    width: 150px;
+    color: white;
+    background: #0030a8;
+    border: none;
+    font-family: sans-serif;
+    font-size: 16px;
+    letter-spacing: 1px;
+    border-radius: 5px;
+}
+
+input:hover {
+    background: #306ea8;
+}
+
+input:disabled {
+    background: #cccccc;
+}
+
+.action {
+    flex: .2;
+    background: #f9f9f9;
+    width: 96%;
+    display: flex;
+    padding: 35px 0;
+    flex-direction: row-reverse;
+    padding-right: 4%;
+}
+
+@media only screen and (max-width: 1000px) {
+    #lab-info {
+        flex-grow: 1;
+    }
+    .main {
+        flex-grow: 1;
+    }
+}
