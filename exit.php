@@ -12,7 +12,7 @@
             <?php
                 session_start();
                 echo "All " . $_SESSION['total_questions'] . " Questions Rated";
-                echo "<br><br>Thank you for rating the lab";
+                echo "<br><br>Thank You For Rating Lab " . $_SESSION['lab_id'];
                 session_unset();
                 session_destroy();
             ?>
