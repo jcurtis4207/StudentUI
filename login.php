@@ -6,6 +6,34 @@
     <link rel="icon" type="image/png" href="img/favicon.png">
     <link rel="stylesheet" type="text/css" href="login-style.css">
     <script src="login-script.js"></script>
+    <?php
+        session_start();
+        # database credentials - need to change database to official one
+        $_SESSION['db_server'] = "localhost";
+        $_SESSION['db_username'] = "root";
+        $_SESSION['db_password'] = "Singapore47";
+        $_SESSION['db_database'] = "jcurtis6";
+        # database variables - will be established by database team
+        $_SESSION['students_table'] = "Students";
+        $_SESSION['student_id_column'] = "student_id";
+        $_SESSION['fname_column'] = "first_name";
+        $_SESSION['lname_column'] = "last_name";
+        $_SESSION['crn_column'] = "crn";
+        $_SESSION['student_password_column'] = "password";
+        $_SESSION['original_password_column'] = "orig_password";
+        $_SESSION['teachers_table'] = "Teachers";
+        $_SESSION['teacher_password_column'] = "password";
+        $_SESSION['labs_table'] = "Labs";
+        $_SESSION['lab_id_column'] = "lab_id";
+        $_SESSION['total_questions_column'] = "total_questions";
+        $_SESSION['instructor_name_column'] = "instructor_name";
+        $_SESSION['semester_column'] = "semester";
+        $_SESSION['course_title_column'] = "course_title";
+        $_SESSION['ratings_table'] = "Ratings";
+        $_SESSION['lab_question_column'] = "lab_question";
+        $_SESSION['difficulty_column'] = "difficulty_rating";
+        $_SESSION['interest_column'] = "interest_rating";
+    ?>
 </head>
 <body>
     <div class="login">

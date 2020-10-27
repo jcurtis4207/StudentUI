@@ -6,15 +6,16 @@
     <link rel="stylesheet" type="text/css" href="login-style.css">
     <title>Change Password</title>
     <?php
+        session_start();
         # database credentials
-        $server = "localhost";
-        $username = "root";
-        $password = "Singapore47";
-        $database = "jcurtis6";
-        # database variables - will be established by database team
-        $students_table = "Students";
-        $student_id_column = "student_id";
-        $student_password_column = "password";
+        $db_server = $_SESSION['db_server'];
+        $db_username = $_SESSION['db_username'];
+        $db_password = $_SESSION['db_password'];
+        $db_database = $_SESSION['db_database'];
+        # database variables
+        $students_table = $_SESSION['students_table'];
+        $student_id_column = $_SESSION['student_id_column'];
+        $student_password_column = $_SESSION['student_password_column'];
     ?>
 </head>
 <body>
@@ -25,13 +26,9 @@
                     # read password from form
                     $new_password = $_POST['new_password'];
                     # read student id from session
-                    session_start();
                     $student_id = $_SESSION['student_id'];
-                    # end session
-                    session_unset();
-                    session_destroy();
                     # connect to database
-                    $conn = new mysqli($server, $username, $password, $database);
+                    $conn = new mysqli($db_server, $db_username, $db_password, $db_database);
                     if($conn->connect_error){
                         die("Connection Failed");
                     }

@@ -1,24 +1,22 @@
 <?php
     # when 'submit student info' button clicked on login screen, verify student password and populate crns
-    
+    session_start();
     # database credentials
-    $server = "localhost";
-    $username = "root";
-    $password = "Singapore47";
-    $database = "jcurtis6";
-    # database variables - will be established by database team
-    $students_table = "Students";
-    $student_id_column = "student_id";
-    $crn_column = "crn";
-    $student_password_column = "password";
-    $original_password_column = "orig_password";
-
+    $db_server = $_SESSION['db_server'];
+    $db_username = $_SESSION['db_username'];
+    $db_password = $_SESSION['db_password'];
+    $db_database = $_SESSION['db_database'];
+    # database variables
+    $students_table = $_SESSION['students_table'];
+    $student_id_column = $_SESSION['student_id_column'];
+    $crn_column = $_SESSION['crn_column'];
+    $student_password_column = $_SESSION['student_password_column'];
+    $original_password_column = $_SESSION['original_password_column'];
     # fetch variables from javascript
     $student_id = $_POST['student_id'];
     $student_password = $_POST['student_password'];
-
     # connect to database
-    $conn = new mysqli($server, $username, $password, $database);
+    $conn = new mysqli($db_server, $db_username, $db_password, $db_database);
     if($conn->connect_error){
         die("Connection Failed");
     }
