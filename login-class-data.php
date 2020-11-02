@@ -1,28 +1,25 @@
 <?php
     # when 'submit class info' button clicked on login screen, verify teacher password and populate lab numbers
-
+    session_start();
     # database credentials
-    $server = "localhost";
-    $username = "root";
-    $password = "Singapore47";
-    $database = "jcurtis6";
-    # database variables - will be established by database team
-    $teachers_table = "Teachers";
-    $crn_column = "crn";
-    $teacher_password_column = "password";
-    $labs_table = "Labs";
-    $lab_id_column = "lab_id";
-
+    $db_server = $_SESSION['db_server'];
+    $db_username = $_SESSION['db_username'];
+    $db_password = $_SESSION['db_password'];
+    $db_database = $_SESSION['db_database'];
+    # database variables
+    $teachers_table = $_SESSION['teachers_table'];
+    $crn_column = $_SESSION['crn_column'];
+    $teacher_password_column = $_SESSION['teacher_password_column'];
+    $labs_table = $_SESSION['labs_table'];
+    $lab_id_column = $_SESSION['lab_id_column'];
     # fetch variables from javascript
     $crn = $_POST['crn'];
     $teacher_password = $_POST['teacher_password'];
-
     # connect to database
-    $conn = new mysqli($server, $username, $password, $database);
+    $conn = new mysqli($db_server, $db_username, $db_password, $db_database);
     if($conn->connect_error){
         die("Connection Failed");
     }
-    
     # fetch teacher info from teachers table
     $stmt = $conn->prepare("SELECT $teacher_password_column FROM $teachers_table WHERE $crn_column=?");
     $stmt->bind_param('s', $crn);

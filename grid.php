@@ -16,21 +16,21 @@
             exit;
         }
         # database credentials
-        $server = "localhost";
-        $username = "root";
-        $password = "Singapore47";
-        $database = "jcurtis6";
-        # database variables - will be established by database team
-        $students_table = "Students";
-        $student_id_column = "student_id";
-        $fname_column = "first_name";
-        $lname_column = "last_name";
-        $labs_table = "Labs";
-        $lab_id_column = "lab_id";
-        $crn_column = "crn";
-        $instructor_name_column = "instructor_name";
-        $semester_column = "semester";
-        $course_title_column = "course_title";
+        $db_server = $_SESSION['db_server'];
+        $db_username = $_SESSION['db_username'];
+        $db_password = $_SESSION['db_password'];
+        $db_database = $_SESSION['db_database'];
+        # database variables
+        $students_table = $_SESSION['students_table'];
+        $student_id_column = $_SESSION['student_id_column'];
+        $fname_column = $_SESSION['fname_column'];
+        $lname_column = $_SESSION['lname_column'];
+        $labs_table = $_SESSION['labs_table'];
+        $lab_id_column = $_SESSION['lab_id_column'];
+        $crn_column = $_SESSION['crn_column'];
+        $instructor_name_column = $_SESSION['instructor_name_column'];
+        $semester_column = $_SESSION['semester_column'];
+        $course_title_column = $_SESSION['course_title_column'];
     ?>
 </head>
 <body>
@@ -38,16 +38,16 @@
         <div id="lab-info">
             <?php
                 # connect to database
-                $conn = new mysqli($server, $username, $password, $database);
+                $conn = new mysqli($db_server, $db_username, $db_password, $db_database);
                 if($conn->connect_error){
                     die("Connection Failed");
                 }
-                # read session variables - sent from login screen
+                # read session variables from login screen
                 $student_id = $_SESSION['student_id'];
                 $lab_id = $_SESSION['lab_id'];
                 $crn = $_SESSION['crn'];
                 # fetch student info from student table
-                $result = $conn->query("SELECT $fname_column, $lname_column FROM $students_table WHERE $student_id_column='$student_id' AND $crn_column=$crn");
+                $result = $conn->query("SELECT $fname_column, $lname_column FROM $students_table WHERE $student_id_column='$student_id' AND $crn_column='$crn'");
                 if($result->num_rows > 0){
                     $fetch = $result->fetch_assoc();
                     echo "<h3>Student</h3>";
@@ -57,7 +57,7 @@
                     exit;
                 }
                 # fetch lab info from lab table
-                $result = $conn->query("SELECT $instructor_name_column, $course_title_column, $semester_column FROM $labs_table WHERE $lab_id_column=$lab_id AND $crn_column=$crn");
+                $result = $conn->query("SELECT $instructor_name_column, $course_title_column, $semester_column FROM $labs_table WHERE $lab_id_column='$lab_id' AND $crn_column='$crn'");
                 if($result->num_rows > 0){
                     $fetch = $result->fetch_assoc();
                     echo "<h3>Lab Number</h3>";

@@ -20,8 +20,11 @@ function SubmitStudentData(){
     request.onload = function(){
         if(this.response == "Error"){
             alert("Student Password Incorrect");
-        }
-        else{
+        }else if(this.response == "Change_Password"){
+            // redirect to new password screen
+            ChangePassword();
+            return false;
+        }else{
             // activate the CRN dropdown, instructor password field, and class submit button
             document.getElementById("crn_dropdown").disabled = false;
             document.getElementById("teacher_password").disabled = false;
@@ -82,6 +85,13 @@ function SubmitClassData(){
     };
     request.send(form_data);
     return false;
+}
+
+function ChangePassword(){
+    // submit html form to change password page
+    form = document.getElementById('input-form');
+    form.action = "change-password.php";
+    form.submit();
 }
 
 // when document loads, add listeners to buttons

@@ -22,6 +22,10 @@
     padding: 50px;
 }
 
+.splash{
+    text-align: center;
+}
+
 .login_right h1 {
     text-align: center;
     font-weight: 700;
