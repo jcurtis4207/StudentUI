@@ -20,32 +20,34 @@
 </head>
 <body>
     <div class="login">
-        <div class="login_right" style="text-align: center;">
-            <?php
-                if($_SERVER["REQUEST_METHOD"] == "POST"){
-                    # read password from form
-                    $new_password = $_POST['new_password'];
-                    # read student id from session
-                    $student_id = $_SESSION['student_id'];
-                    # connect to database
-                    $conn = new mysqli($db_server, $db_username, $db_password, $db_database);
-                    if($conn->connect_error){
-                        die("Connection Failed");
+        <div class="login_right">
+            <div class="splash">
+                <?php
+                    if($_SERVER["REQUEST_METHOD"] == "POST"){
+                        # read password from form
+                        $new_password = $_POST['new_password'];
+                        # read student id from session
+                        $student_id = $_SESSION['student_id'];
+                        # connect to database
+                        $conn = new mysqli($db_server, $db_username, $db_password, $db_database);
+                        if($conn->connect_error){
+                            die("Connection Failed");
+                        }
+                        # update database with new password
+                        $stmt = $conn->prepare("UPDATE $students_table SET $student_password_column=? WHERE $student_id_column=?");
+                        $stmt->bind_param('ss', $new_password, $student_id);
+                        $stmt->execute();
+                        if($stmt->error){
+                            echo "Unable to create password for " . $student_id;
+                            echo "<br><br><a href='login.php'>Try Again</a>";
+                            exit;
+                        }else{
+                            echo "Successfully created password for " . $student_id;
+                            echo "<br><br><a href='login.php'>Login to RateMyLab</a>";
+                        }
                     }
-                    # update database with new password
-                    $stmt = $conn->prepare("UPDATE $students_table SET $student_password_column=? WHERE $student_id_column=?");
-                    $stmt->bind_param('ss', $new_password, $student_id);
-                    $stmt->execute();
-                    if($stmt->error){
-                        echo "Unable to create password for " . $student_id;
-                        echo "<br><br><a href='new-login.html'>Try Again</a>";
-                        exit;
-                    }else{
-                        echo "Successfully created password for " . $student_id;
-                        echo "<br><br><a href='login.html'>Login to RateMyLab</a>";
-                    }
-                }
-            ?>
+                ?>
+            </div>
         </div>
     </div>
 </body>

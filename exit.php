@@ -8,14 +8,17 @@
 </head>
 <body>
     <div class="login">
-        <div class="login_right" style="text-align: center;">
-            <?php
-                session_start();
-                echo "All " . $_SESSION['total_questions'] . " Questions Rated";
-                echo "<br><br>Thank You For Rating Lab " . $_SESSION['lab_id'];
-                session_unset();
-                session_destroy();
-            ?>
+        <div class="login_right">
+            <div class="splash">
+                <?php
+                    session_start();
+                    echo "All " . $_SESSION['total_questions'] . " Questions Rated";
+                    echo "<br><br>Thank You For Rating Lab " . $_SESSION['lab_id'];
+                    echo "<p><a href='login.php'>Return to Login Screen</a></p>";
+                    session_unset();
+                    session_destroy();
+                ?>
+            </div>
         </div>
     </div>
 </body>
