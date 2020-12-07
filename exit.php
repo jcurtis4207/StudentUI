@@ -13,7 +13,7 @@
                 <?php
                     session_start();
                     echo "All " . $_SESSION['total_questions'] . " Questions Rated";
-                    echo "<br><br>Thank You For Rating Lab " . $_SESSION['lab_id'];
+                    echo "<br><br>Thank You For Rating Lab " . $_SESSION['assignment_number'];
                     echo "<p><a href='login.php'>Return to Login Screen</a></p>";
                     session_unset();
                     session_destroy();

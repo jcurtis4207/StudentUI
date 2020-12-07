@@ -9,7 +9,7 @@
     # database variables
     $students_table = $_SESSION['students_table'];
     $student_id_column = $_SESSION['student_id_column'];
-    $crn_column = $_SESSION['crn_column'];
+    $student_crn_column = $_SESSION['student_crn_column'];
     $student_password_column = $_SESSION['student_password_column'];
     $original_password_column = $_SESSION['original_password_column'];
     # fetch variables from javascript
@@ -21,7 +21,7 @@
         die("Connection Failed");
     }
     # fetch student info from student table
-    $stmt = $conn->prepare("SELECT $crn_column, $student_password_column, $original_password_column FROM $students_table WHERE $student_id_column=?");
+    $stmt = $conn->prepare("SELECT $student_crn_column, $student_password_column, $original_password_column FROM $students_table WHERE $student_id_column=?");
     $stmt->bind_param('s', $student_id);
     $stmt->execute();
     $result = $stmt->get_result();
@@ -46,7 +46,7 @@
                 break;
             }
             # create one long string of CRNs separated by @s
-            $output .= $row[$crn_column] . '@';
+            $output .= $row[$student_crn_column] . '@';
         }
     }else{
         $output = "";
