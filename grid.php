@@ -23,14 +23,17 @@
         # database variables
         $students_table = $_SESSION['students_table'];
         $student_id_column = $_SESSION['student_id_column'];
-        $fname_column = $_SESSION['fname_column'];
-        $lname_column = $_SESSION['lname_column'];
-        $labs_table = $_SESSION['labs_table'];
-        $lab_id_column = $_SESSION['lab_id_column'];
-        $crn_column = $_SESSION['crn_column'];
-        $instructor_name_column = $_SESSION['instructor_name_column'];
+        $student_crn_column = $_SESSION['student_crn_column'];
+        $student_fname_column = $_SESSION['student_fname_column'];
+        $student_lname_column = $_SESSION['student_lname_column'];
+        $teachers_table =  $_SESSION['teachers_table'];
         $semester_column = $_SESSION['semester_column'];
-        $course_title_column = $_SESSION['course_title_column'];
+        $year_column = $_SESSION['year_column'];
+        $teacher_id_column = $_SESSION['teacher_id_column'];
+        $labs_table = $_SESSION['labs_table'];
+        $lab_crn_column = $_SESSION['lab_crn_column'];
+        $lab_teacher_id_column = $_SESSION['lab_teacher_id_column'];
+
     ?>
 </head>
 <body>
@@ -44,30 +47,38 @@
                 }
                 # read session variables from login screen
                 $student_id = $_SESSION['student_id'];
-                $lab_id = $_SESSION['lab_id'];
+                $assignment_number = $_SESSION['assignment_number'];
                 $crn = $_SESSION['crn'];
                 # fetch student info from student table
-                $result = $conn->query("SELECT $fname_column, $lname_column FROM $students_table WHERE $student_id_column='$student_id' AND $crn_column='$crn'");
+                $result = $conn->query("SELECT $student_fname_column, $student_lname_column FROM $students_table WHERE $student_id_column='$student_id' AND $student_crn_column='$crn'");
                 if($result->num_rows > 0){
                     $fetch = $result->fetch_assoc();
                     echo "<h3>Student</h3>";
-                    echo "<p>" . $fetch[$fname_column] . " " . $fetch[$lname_column] . " (" . $student_id . ")</p>";
+                    echo "<p>" . $fetch[$student_fname_column] . " " . $fetch[$student_lname_column] . " (" . $student_id . ")</p>";
                 }else{
                     header("Location: error.html");
                     exit;
                 }
-                # fetch lab info from lab table
-                $result = $conn->query("SELECT $instructor_name_column, $course_title_column, $semester_column FROM $labs_table WHERE $lab_id_column='$lab_id' AND $crn_column='$crn'");
+                # fetch teacher info from lab table
+                $teacher_id = '';
+                $result = $conn->query("SELECT $lab_teacher_id_column FROM $labs_table WHERE $lab_crn_column='$crn'");
+                if($result->num_rows > 0){
+                    $fetch = $result->fetch_assoc();
+                    $teacher_id = $fetch[$lab_teacher_id_column];
+                }else{
+                    header("Location: error.html");
+                    exit;
+                }
+                # fetch lab info from teacher table
+                $result = $conn->query("SELECT $teacher_id_column, $semester_column, $year_column FROM $teachers_table WHERE $teacher_id_column='$teacher_id'");
                 if($result->num_rows > 0){
                     $fetch = $result->fetch_assoc();
                     echo "<h3>Lab Number</h3>";
-                    echo "<p>" . $lab_id . "</p>";
+                    echo "<p>" . $assignment_number . "</p>";
                     echo "<h3>Instructor</h3>";
-                    echo "<p>" . $fetch[$instructor_name_column] . "</p>";
-                    echo "<h3>Course</h3>";
-                    echo "<p>" . $fetch[$course_title_column] . "</p>";
+                    echo "<p>" . $fetch[$teacher_id_column] . "</p>";
                     echo "<h3>Semester</h3>";
-                    echo "<p>" . $fetch[$semester_column] . "</p>";
+                    echo "<p>" . $fetch[$semester_column] . " " . $fetch[$year_column] . "</p>";
                     echo "<h3>CRN</h3>";
                     echo "<p>" . $crn . "</p>";
                 }else{

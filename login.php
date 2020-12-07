@@ -8,29 +8,36 @@
     <script src="login-script.js"></script>
     <?php
         session_start();
-        # database credentials - need to change database to official one
+        # database credentials
         $_SESSION['db_server'] = "localhost";
         $_SESSION['db_username'] = "root";
         $_SESSION['db_password'] = "Singapore47";
-        $_SESSION['db_database'] = "jcurtis6";
-        # database variables - will be established by database team
-        $_SESSION['students_table'] = "Students";
-        $_SESSION['student_id_column'] = "student_id";
-        $_SESSION['fname_column'] = "first_name";
-        $_SESSION['lname_column'] = "last_name";
-        $_SESSION['crn_column'] = "crn";
-        $_SESSION['student_password_column'] = "password";
+        $_SESSION['db_database'] = "RateMyLab_new";
+        # database variables
+        $_SESSION['students_table'] = "student";
+        $_SESSION['student_id_column'] = "Stu_id";
+        $_SESSION['student_crn_column'] = "lab_crn1";
+        $_SESSION['student_password_column'] = "Stu_passwd";
         $_SESSION['original_password_column'] = "orig_password";
-        $_SESSION['teachers_table'] = "Teachers";
-        $_SESSION['teacher_password_column'] = "password";
-        $_SESSION['labs_table'] = "Labs";
-        $_SESSION['lab_id_column'] = "lab_id";
-        $_SESSION['total_questions_column'] = "total_questions";
-        $_SESSION['instructor_name_column'] = "instructor_name";
-        $_SESSION['semester_column'] = "semester";
-        $_SESSION['course_title_column'] = "course_title";
-        $_SESSION['ratings_table'] = "Ratings";
-        $_SESSION['lab_question_column'] = "lab_question";
+        $_SESSION['student_fname_column'] = "first_name";
+        $_SESSION['student_lname_column'] = "last_name";
+        $_SESSION['teachers_table'] = "PROFESSOR";
+        $_SESSION['teacher_id_column'] = "prof_id";
+        $_SESSION['semester_column'] = "Semester";
+        $_SESSION['year_column'] = "year_1";
+        $_SESSION['labs_table'] = "LAB";
+        $_SESSION['lab_crn_column'] = "Lab_Crn";
+        $_SESSION['lab_teacher_id_column'] = "professor_id";
+        $_SESSION['teacher_password_column'] = "Instructor_pass";
+        $_SESSION['assignments_table'] = "assignment";
+        $_SESSION['assignment_crn_column'] = "lab_crn2";
+        $_SESSION['assignment_number_column'] = "Assignment_no";
+        $_SESSION['total_questions_column'] = "Total_no_Questions";
+        $_SESSION['ratings_table'] = "rating";
+        $_SESSION['rating_crn_column'] = "lab_crn3";
+        $_SESSION['rating_student_id_column'] = "Student_id";
+        $_SESSION['rating_assignment_number_column'] = "Assignment_no2";
+        $_SESSION['lab_question_column'] = "Question_no";
         $_SESSION['difficulty_column'] = "difficulty_rating";
         $_SESSION['interest_column'] = "interest_rating";
     ?>
