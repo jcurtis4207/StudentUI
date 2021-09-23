@@ -14,7 +14,9 @@ The interface was written in HTML, CSS, JavaScript, and PHP.
 
 The two main aspects of the student interface were the login procedure and the rating procedure. 
 
-### Loggin In
+#
+
+### Logging In
 
 When the semester begins, each student will receive a temporary password good for the first login. 
 
@@ -29,6 +31,8 @@ this will take them to the rating screen.
 
 ![Login Picture](img/login-page.png)
 
+#
+
 ### Rating Labs
 
 The rating page uses a clickable grid with interest on one axis and difficulty on the other. 
@@ -38,6 +42,8 @@ Information about the student, instructor, and lab are shown on the left side of
 The student will either click a square on the grid, or opt to skip the rating. 
 
 ![Rating Picture](img/rating-grid.png)
+
+#
 
 ### Backend
 
